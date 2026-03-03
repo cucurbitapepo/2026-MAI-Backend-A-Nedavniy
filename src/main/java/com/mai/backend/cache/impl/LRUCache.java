@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * LRU (Least Recently Used) cache implementation.
  * <p>
- * Provides O(1) time complexity for {@code get}, {@code set}, and {@code rem}
+ * Provides O(1) time complexity for {@code get}, {@code set}, and {@code remove}
  * operations using a combination of HashMap and doubly-linked list.
  * </p>
  * <p>
@@ -61,7 +61,7 @@ public class LRUCache implements Cache<String, String> {
    * </p>
    *
    * @param key the key to look up
-   * @return the associated value, or empty string if key not found
+   * @return the associated value, or null if key not found
    * @throws NullPointerException if key is null
    */
   @Override
@@ -84,7 +84,7 @@ public class LRUCache implements Cache<String, String> {
    *
    * @param key   the key to store
    * @param value the value to store
-   * @throws NullPointerException if key or value is null
+   * @throws NullPointerException if key is null
    */
   @Override
   public void set(String key, String value) {
@@ -113,7 +113,7 @@ public class LRUCache implements Cache<String, String> {
    * Does nothing if key is not present in the cache.
    * </p>
    *
-   * @param key the key to remove
+   * @param key the key to remove (ignored if null)
    */
   @Override
   public void remove(String key) {
